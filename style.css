@@ -360,17 +360,120 @@ footer .socialMedia p{
     font-size: 16px;
     font-weight: 600;
     color: grey;
-    width: 100%;
+    background-color: #f9f9f9;
     height: 40px;
-    background-color: white;
     border: none;
     outline: none;
     border-radius: 10px;
     cursor: pointer; /*Change the icon of cursor when it moves on the button*/
 }
 
-/*Change the color of button when move the cursor on the button*/
 .btnLogout:hover{
-    background-color: lightcyan;
-    color: blue;
+    color: black;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.container{
+    display: flex;
+    justify-content: left;
+}
+
+.container .left-content{
+    width: 10%;
+    /* padding-left: 50px; */
+    padding-top: 10px;
+    background-color: darkblue;
+    height: 100vh;
+    color: white;
+}
+
+.container .left-content .homeBtn a{
+    text-decoration: none;
+    color: white;
+    padding-left: 50px;
+}
+
+.container .left-content .menus{
+    margin-top: 50px;
+}
+
+.container .left-content .menus li{
+    list-style: none;
+    padding: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container .left-content .menus li a{
+    text-decoration: none;
+    color: white;
+}
+
+.container .left-content .menus li:hover{
+    background-color: rgb(1, 1, 61);
+}
+
+.container .right-content{
+    width: 90%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/* Profile */
+.profile-form {
+  width: 90%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #aaa;
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+.profile-form button {
+  margin-top: 15px;
+  width: 20%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile-form button:hover {
+  background-color: #0056b3;
 }

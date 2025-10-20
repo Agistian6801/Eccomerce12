@@ -20,7 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bagpackers</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,29 +34,28 @@
                 <li><a href="product.html">Product</a></li>
                 <li><a href="">Blog</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Icon</a></li>
                 <?php
                     //CHECK IF LOGGED IN
                     if(isset($_SESSION['email'])){
-                        echo '<li>
-                            <form method="post">
-                                <input type="hidden" name="logout" value="1">
-                                <input class="btnLogout" type="submit" value="Logout">
-                            </form>
-                        </li>';
+                        echo '<li><a href="">
+                                    <div class="dropdown">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                        </svg>
+                                        <div class="dropdown-menu">
+                                            <a href="dashboard.html">Dashboard</a>
+                                            <form method="post">
+                                                <input type="hidden" name="logout" value="1">
+                                                <input class="btnLogout" type="submit" value="Logout">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a></li>';
                     }else{
                         echo '<li><a href="login.php">Login</a></li>';
                     }
-
                 ?>
-                <!-- <li><a href="login.html">Login</a></li> -->
-                 <!-- LOGOUT -->
-                <!-- <li>
-                    <form method="post">
-                        <input type="hidden" name="logout" value="1">
-                        <input class="btnLogout" type="submit" value="logout">
-                    </form>
-                </li> -->
             </ul>
         </div>
     </header>
