@@ -7,28 +7,25 @@
     <title>Eccomerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="loginBody">
     <?php
         require "check.php";
-        if(isset($failed)){
-            echo "<div>INVALID ID USER/PASSWORD!</div>";
-        }
     ?>
     <div class="login-box">
         <form method="post">
             <h2>Login</h2>
 
             <div class="input-box">
-                <input type="email" required>
+                <input type="email" name="email" required>
                 <label>Email</label>
             </div>
 
             <div class="input-box">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <label>Password</label>
             </div>
 
-            <button type="submit">Login</button>
+            <button class="btnLogin" type="submit">Login</button>
         </form>
     </div>
 </body>

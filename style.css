@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +8,7 @@
 }
 
 /*Change the background, and set the content inside body to the center*/
-body{
+.loginBody{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +70,7 @@ h2{
     color: white;
 }
 
-button{
+.btnLogin{
     width: 100%;
     height: 40px;
     background-color: white;
@@ -81,7 +83,294 @@ button{
 }
 
 /*Change the color of button when move the cursor on the button*/
-button:hover{
+.btnLogin:hover{
+    background-color: lightcyan;
+    color: blue;
+}
+
+/*Make global styling*/
+.section-p1{
+    padding: 40px 80px;
+}
+
+.section-m1{
+    margin: 40px 0;
+}
+
+body{
+    width: 100%;
+}
+
+h1{
+    font-size: 54px;
+}
+
+h2{
+    font-size: 46px;
+}
+
+h3{
+    font-size: 35px;
+}
+
+h4{
+    font-size: 20px;
+}
+
+
+/*header*/
+
+header{
+    display: flex; /*To make it inline*/
+    align-items: center;
+    justify-content: space-between; /*Give space between tags inside header*/
+    padding: 20px 80px;
+    background-color: white;
+    /*To make sticky header*/
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100; /*It can be more than 100 if there are a lot of div/content/element under the header that are not supposed to overlay the header*/
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*remove the bullet list in navigation menu*/
+#navbar li{
+    list-style: none;
+    padding: 0 20px; /*top bottom = 0 right & left = 20*/
+}
+
+/*remove the underline*/
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: grey;
+    transition: 0.3s ease; /*smooth the hover, did after hover setted*/
+}
+
+/*To make menu active when clicked/in the page, add active. Also add class active in the first tags a (menu)*/
+#navbar li a:hover,
+#navbar li a.active{
+    color: black;
+}
+
+/*Hero*/
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0 0 0;
+}
+
+#hero .heroTeks{
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 60px;
+}
+
+#hero .heroTeks h1{
+    color:violet;
+}
+
+#hero .heroTeks button{
+    background: linear-gradient(to top right, violet, rgb(240, 112, 133));
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+    width: 50%;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#hero .heroTeks button:hover{
+    background: pink;
+}
+
+/*Categories*/
+
+#categoriesLine{
+    background-color: rgb(255, 195, 255);
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    flex-wrap: wrap; /*manage the wrap when screen smaller*/
+}
+
+#categoriesLine .cateLine-box{
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    margin: 10px 10px;
+    background-color: white;
+    box-shadow: 5px 10px 10px lightgray;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+#categoriesLine .cateLine-box:hover{
+    box-shadow: 0px 5px 20px gray;
+}
+
+/*Product*/
+
+#products{
+    text-align: center;
+}
+
+#products .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 100px;
+}
+
+#products .prod{
+    width: 30%;
+    padding: 20px 20px;
+    margin: 10px 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease; /*img zoom ketika hover*/
+    overflow: hidden;
+    z-index: 1; /*below the header's index*/
+}
+
+#products .prod img{
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    transition: 0.9s ease;
+    background-color: rgb(242, 242, 242);
+}
+
+#products .prod:hover{
+    box-shadow: 0px 0px 15px lightgray;
+}
+
+#products .prod img:hover{
+    transform: scale(1.2);
+}
+
+#products .prod .pro-desc{
+    margin-top: 10%;
+    text-align: left;
+    line-height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#products .prod .pro-desc .name{
+    background-color: rgb(255, 203, 255);
+    border-radius: 10px;
+    display: inline;
+    padding: 5px;
+}
+
+/*Footer*/
+
+footer{
+    background-color:violet;
+}
+
+footer p{
+    margin-top: 10px;
+}
+
+footer .socialMedia{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+footer .socialMedia p{
+    margin-right: 5px;
+}
+
+/*Products page*/
+
+#productsPage{
+    text-align: center;
+}
+
+#productsPage .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 50px;
+}
+
+#productsPage .prod{
+    width: 20%;
+    height: 600px;
+    padding: 20px 20px;
+    margin: 10px 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease; /*img zoom ketika hover*/
+    overflow: hidden;
+    z-index: 1; /*below the header's index*/
+}
+
+#productsPage .prod img{
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    transition: 0.9s ease;
+    background-color: rgb(242, 242, 242);
+}
+
+#productsPage .prod:hover{
+    box-shadow: 0px 0px 15px lightgray;
+}
+
+#productsPage .prod img:hover{
+    transform: scale(1.2);
+}
+
+#productsPage .prod .pro-desc{
+    margin-top: 10%;
+    text-align: left;
+    line-height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#productsPage .prod .pro-desc .name{
+    background-color: rgb(255, 203, 255);
+    border-radius: 10px;
+    display: inline;
+    padding: 5px;
+}
+
+.btnLogout{
+    font-size: 16px;
+    font-weight: 600;
+    color: grey;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer; /*Change the icon of cursor when it moves on the button*/
+}
+
+/*Change the color of button when move the cursor on the button*/
+.btnLogout:hover{
     background-color: lightcyan;
     color: blue;
 }
