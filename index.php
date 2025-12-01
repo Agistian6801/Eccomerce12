@@ -150,17 +150,18 @@
     </section>
 
     <footer class="section-p1">
-            <h4 style="margin-bottom: 20px;">Logo</h4>
-            <p>Slogan here!</p>
-            <p><strong>Address</strong></p>
-            <p>Pesona Khayangan, Block X 100. Kelurahan Pakisaji Kecamatan Beji Kota Depok.</p>
-            <p><strong>Follow Us</strong></p>
-            <div class="socialMedia">
-                <p>FB</p>
-                <p>Instagram</p>
-                <p>Twitter</p>
-                <p>Youtube</p>
-            </div>
+        <h4 style="margin-bottom: 20px;">Logo</h4>
+        <p>Slogan here!</p>
+        <p><strong>Address</strong></p>
+        <p>Pesona Khayangan, Block X 100. Kelurahan Pakisaji Kecamatan Beji Kota Depok.</p>
+        <p><strong>Follow Us</strong></p>
+        
+        <div class="socialMedia">
+            <p>FB</p>
+            <p>Instagram</p>
+            <p>Twitter</p>
+            <p>Youtube</p>
+        </div>
         <hr style="margin-top: 20px;">
         <p style="text-align: center;">&copy;2025 - Bagpackers</p>
     </footer>

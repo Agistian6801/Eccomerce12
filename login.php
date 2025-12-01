@@ -25,7 +25,14 @@
                 <label>Password</label>
             </div>
 
-            <button class="btnLogin" type="submit">Login</button>
+            <?php
+                if($failed){ ?>
+                    <p>
+                        <?php echo $failed ?>
+                    </p>
+            <?php } ?>
+
+            <button class="btnLogin" type="submit" name="login">Login</button>
         </form>
     </div>
 </body>
