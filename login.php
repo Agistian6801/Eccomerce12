@@ -21,7 +21,7 @@
             </div>
 
             <div class="input-box">
-                <input type="password" name="password" required>
+                <input type="password" name="password"  required>
                 <label>Password</label>
             </div>
 

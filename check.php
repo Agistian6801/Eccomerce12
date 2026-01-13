@@ -5,6 +5,9 @@
     //     "john@gmail.com" => "654321"
     // ];
 
+    //START SESSION
+    session_start();
+
     //CONNECT DB
     $host = "localhost";
     $user = "root";
@@ -13,8 +16,7 @@
     $conn = mysqli_connect($host, $user, $pass, $database_name);
     $failed = "";
 
-    //START SESSION
-    session_start();
+    
 
     //VERIFY THE LOGIN
     if(isset($_POST['login'])){

@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: lightcyan;
+    background-color: rgb(237, 206, 251);
 }
 
 /*Create box for login content*/
@@ -21,8 +21,8 @@
     position: relative;
     width: 400px;
     height: 450px;
-    background-color: blue;
-    background-image: linear-gradient(to top right, blue, lightblue);
+    /* background-color: blue; */
+    background-image: linear-gradient(to top right, rgb(221, 0, 255), rgb(227, 181, 247));
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -84,8 +84,8 @@ h2{
 
 /*Change the color of button when move the cursor on the button*/
 .btnLogin:hover{
-    background-color: lightcyan;
-    color: blue;
+    background-color: rgb(152, 150, 152);
+    color: rgb(0, 0, 0);
 }
 
 /*Make global styling*/
