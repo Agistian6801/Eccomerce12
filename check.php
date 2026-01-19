@@ -8,16 +8,16 @@
     //START SESSION
     session_start();
 
+    include 'db.php';
+
     //CONNECT DB
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $database_name = "bagpackers";
-    $conn = mysqli_connect($host, $user, $pass, $database_name);
+    // $host = "localhost";
+    // $user = "root";
+    // $pass = "";
+    // $database_name = "bagpackers";
+    // $conn = mysqli_connect($host, $user, $pass, $database_name);
     $failed = "";
-
     
-
     //VERIFY THE LOGIN
     if(isset($_POST['login'])){
         if (isset($_POST['email']) && !isset($_SESSION['email'])){

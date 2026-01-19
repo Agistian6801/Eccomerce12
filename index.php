@@ -1,5 +1,9 @@
 <?php
-    //PROTECTED PAGE
+
+    //Include File db.php
+    include 'db.php';
+
+    // //PROTECTED PAGE
     session_start();
 
     //LOGOUT
@@ -7,12 +11,7 @@
         unset($_SESSION['email']);
     }
 
-    //BACK TO LOGIN PAGE IS NOT SIGNED IN
-    // if(!isset($_SESSION['email'])){
-    //     log($_SESSION['email']);
-    //     header("Location: login.php");
-    //     exit();
-    // }
+
 
 ?>
 <!DOCTYPE html>
@@ -62,6 +61,17 @@
 
     <section id="hero">
         <div class="heroTeks">
+
+            <?php
+                if(isset($_SESSION['email'])){
+                    
+                    $sql = mysqli_query($conn, ("SELECT * FROM user where Email = '{$_SESSION['email']}' "));
+                    $data = mysqli_fetch_array($sql);
+
+                    echo '<h3>Welcome Back, '. $data['Name'] .'</h3>';
+                }
+            ?>
+
             <h4>Best-of-the-Best-offer</h4>
             <h2>Be ready for the school</h2>
             <h1>On all products</h1>
@@ -74,12 +84,20 @@
     </section>
 
     <section id="categoriesLine" class="section-p1">
-        <div class="cateLine-box">
-            <img src="images/bp_06.jpg" alt="" width="100" height="100">
-            <p>Bag</p>
-        </div>
+        <?php 
 
-        <div class="cateLine-box">
+            $sql = mysqli_query($conn, ("SELECT * FROM categories"));
+        
+            while ($data = mysqli_fetch_array($sql)) { ?>
+
+            <div class="cateLine-box">
+                <img src="images/<?= $data['Image']; ?>" alt="" width="100" height="100">
+                <p><?= $data['Name']; ?></p>
+            </div>
+
+        <?php } ?>
+
+        <!-- <div class="cateLine-box">
             <img src="images/stationery.jpg" alt="" width="100" height="100">
             <p>Stationery</p>
         </div>
@@ -97,20 +115,29 @@
         <div class="cateLine-box">
             <img src="images/book.jpg" alt="" width="100" height="100">
             <p>Book</p>
-        </div>
+        </div> -->
     </section>
 
     <section id="products" class="section-p1">
         <h3>Best Seller Products</h3>
         <p>The best among every schoolers</p>
+
         <div class="container">
+
+        
+        <?php 
+
+            $sql = mysqli_query($conn, ("SELECT * FROM products"));
+        
+            while ($data = mysqli_fetch_array($sql)) { ?>
+
             <div class="prod">
-                <img src="images/eagle.png" alt="">
+                <img src="images/<?= $data['Image']; ?>" alt="">
                 <div class="pro-desc">
                     <div>
-                        <p>Eagle</p>
-                        <h4 class="name">Galaxy Eagle Shoes</h4>
-                        <h4 >Rp218.405</h4>
+                        <p><?= $data['Merk']; ?></p>
+                        <h4 class="name"><?= $data['Name']; ?></h4>
+                        <h4 >Rp<?= $data['Price']; ?></h4>
                     </div>
                     <div class="icon">
                         <p>Icon</p>
@@ -118,8 +145,10 @@
                 </div>
             </div>
 
-            <div class="prod">
-                <img src="images/hooligans.png" alt="">
+        <?php } ?>
+
+            <!-- <div class="prod">
+                <img src="images/hgs.png" alt="">
                 <div class="pro-desc">
                     <div>
                         <p>Hooligans</p>
@@ -144,7 +173,7 @@
                         <p>Icon</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </section>
