@@ -389,6 +389,9 @@ footer .socialMedia p{
   display: block;
 }
 
+
+/* Dashboard */
+
 .container{
     display: flex;
     justify-content: left;
@@ -430,39 +433,17 @@ footer .socialMedia p{
     background-color: rgb(1, 1, 61);
 }
 
+.container .left-content .menus .active{
+    background-color: rgb(1, 1, 61);
+}
+
 .container .right-content{
     width: 90%;
     padding-left: 10px;
     padding-top: 10px;
 }
 
-/* Profile */
-.profile-form {
-  width: 90%;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-top: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.profile-form label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-.profile-form input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  border: 1px solid #aaa;
-  background-color: lightgrey;
-  border-radius: 5px;
-}
-
-.profile-form button {
+.buttons {
   margin-top: 15px;
   width: 20%;
   padding: 10px;
@@ -474,6 +455,42 @@ footer .socialMedia p{
   cursor: pointer;
 }
 
-.profile-form button:hover {
+.buttons:hover {
   background-color: #0056b3;
+}
+
+.btn-edit {
+    text-decoration: none;
+    background-color: rgb(255, 174, 0);
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btn-edit:hover{
+    background-color: rgb(190, 131, 3);
+}
+
+.btn-delete {
+    text-decoration: none;
+    background-color: rgb(228, 3, 3);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btn-delete:hover{
+    background-color: rgb(170, 3, 3);
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th, td{
+    border-bottom: 1px solid gray;
+    padding: 10px;
 }
