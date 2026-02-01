@@ -494,3 +494,38 @@ th, td{
     border-bottom: 1px solid gray;
     padding: 10px;
 }
+
+/* CSS for pop-up add new data */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    width: 400px;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 8px;
+    color: blue;
+}
+
+.modal-content form input, select{
+    width: 100%;
+    padding: 5px;
+}
+
+.modal-content h3{
+    color: blue;
+}
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
