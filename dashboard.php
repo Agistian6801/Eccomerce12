@@ -11,10 +11,7 @@
     }
 
     //PHP code to add new user
-    // $success = false;
-
     if (isset($_POST['addUser'])) {
-
         $name   = $_POST['name'];
         $age    = $_POST['age'];
         $gender = $_POST['gender'];
@@ -31,18 +28,10 @@
         $query = "INSERT INTO user (Name, Age, Gender, City, Phone, Email, Image)
                 VALUES ('$name', '$age', '$gender', '$city', '$phone', '$email', '$imageName')";
 
-        // mysqli_query($conn, $query);
-
         if (mysqli_query($conn, $query)) {
-            // Redirect with success flag
-            // $success = true;
             header("Location: dashboard.php?success=1");
             exit();
         }
-
-        // Refresh page
-        // header("Location: dashboard.php");
-        // exit();
     }
 
 ?>
@@ -75,7 +64,6 @@
             <h1>Data User</h1>
             <hr>
             <div class="content">
-                <!-- <button class="buttons" type="submit">Add New User</button> -->
                 <button class="buttons"  onclick="openModal()">Add New User</button>
                 <table>
                 
@@ -151,6 +139,7 @@
             <br>
 
             <form method="POST" enctype="multipart/form-data">
+
                 <input type="text" name="name" placeholder="Name" required><br><br>
                 <input type="number" name="age" placeholder="Age" required><br><br>
 
@@ -167,6 +156,7 @@
                 <input type="file" name="image" required><br><br>
 
                 <button class="buttons" type="submit" name="addUser">Save</button>
+
             </form>
         </div>
     </div>
@@ -178,8 +168,8 @@
         </div>
     </div>
 
-    <!-- Javascript codes for the pop-up -->
     <script>
+
         function openModal() {
             document.getElementById("userModal").style.display = "block";
         }
@@ -215,9 +205,8 @@
                 modal.style.display = "none";
             }
         }
-    </script>
 
+    </script>
+    
 </body>
 </html>
-
-                    
