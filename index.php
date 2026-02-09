@@ -96,26 +96,6 @@
             </div>
 
         <?php } ?>
-
-        <!-- <div class="cateLine-box">
-            <img src="images/stationery.jpg" alt="" width="100" height="100">
-            <p>Stationery</p>
-        </div>
-
-        <div class="cateLine-box">
-            <img src="images/shoes.jpg" alt="" width="100" height="100">
-            <p>Shoes</p>
-        </div>
-
-        <div class="cateLine-box">
-            <img src="images/lunchbottle.png" alt="" width="100" height="100">
-            <p>Box & Bottle</p>
-        </div>
-
-        <div class="cateLine-box">
-            <img src="images/book.jpg" alt="" width="100" height="100">
-            <p>Book</p>
-        </div> -->
     </section>
 
     <section id="products" class="section-p1">
@@ -146,35 +126,6 @@
             </div>
 
         <?php } ?>
-
-            <!-- <div class="prod">
-                <img src="images/hgs.png" alt="">
-                <div class="pro-desc">
-                    <div>
-                        <p>Hooligans</p>
-                        <h4 class="name">Hooligans Bag Gullit x Black</h4>
-                        <h4>Rp118.800</h4>
-                    </div>
-                    <div class="icon">
-                        <p>Icon</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prod">
-                <img src="images/sidu.png" alt="">
-                <div class="pro-desc">
-                    <div>
-                        <p>Sinar Dunia</p>
-                        <h4 class="name">Book (38 pages)</h4>
-                        <h4>Rp6.500</h4>
-                    </div>
-                    <div class="icon">
-                        <p>Icon</p>
-                    </div>
-                </div>
-            </div> -->
-
         </div>
     </section>
 

@@ -33,6 +33,47 @@
             exit();
         }
     }
+
+    //Edit data
+    if (isset($_POST['editProduct'])) {
+
+        $id       = $_POST['id'];
+        $category = $_POST['category'];
+        $code     = $_POST['code'];
+        $merk     = $_POST['merk'];
+        $name     = $_POST['name'];
+        $price    = $_POST['price'];
+
+        // Check Image
+        if($_FILES['image']['name'] == ''){
+            $query = "UPDATE products SET
+                ID_Cat='$category',
+                Code='$code',
+                Merk='$merk',
+                Name='$name',
+                Price='$price'
+              WHERE ID_Product='$id'";
+        }else{
+            $imageName = $_FILES['image']['name'];
+            $tmpName   = $_FILES['image']['tmp_name'];
+
+            move_uploaded_file($tmpName, "images/" . $imageName);
+
+            $query = "UPDATE products SET
+                ID_Cat='$category',
+                Code='$code',
+                Merk='$merk',
+                Name='$name',
+                Price='$price',
+                Image='$imageName'
+              WHERE ID_Product='$id'";
+        }
+
+        mysqli_query($conn, $query);
+
+        header("Location: product.php?updated=1");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +153,15 @@
                             <img src="images/<?= $data['Image']; ?>"  width="50" height="50" alt="">
                         </td>
                         <td>
-                            <a href="#" class="btn-edit">Edit</a>
+                            <a href="#" class="btn-edit" onclick="editModal(
+                                    '<?= $data['ID_Product']; ?>',
+                                    '<?= $data['ID_Cat']; ?>',
+                                    '<?= $data['Code']; ?>',
+                                    '<?= $data['Merk']; ?>',
+                                    '<?= $data['Name']; ?>',
+                                    '<?= $data['Price']; ?>',
+                                    '<?= $data['Image']; ?>'
+                                )">Edit</a>
                         </td>
                         <td>
                             <a href="#" class="btn-delete">Delete</a>
@@ -166,7 +215,47 @@
     <!-- Success Modal -->
     <div id="successModal" class="modal">
         <div class="modal-content">
-            <h4 style="color:green;">✅ Successfully Added!</h4>
+            <h4 style="color:green;">✅ Successfully Added or Updated!</h4>
+        </div>
+    </div>
+
+    <!-- Modal to update  data -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Update Product</h3>
+            <hr>
+            <br>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <input type="hidden" name="id" id="edit_product_id">
+
+                <select name="category" id="edit_category" required>
+
+                    <option value="">Select Category</option>
+
+                    <?php
+                    $sql = mysqli_query($conn, " SELECT * FROM categories");
+                                            
+                    while ($data = mysqli_fetch_array($sql)) { ?>
+
+                    <option value="<?= $data['ID_Cat']; ?>"><?= $data['Name']; ?></option>
+                    
+                    <?php } ?>
+
+                </select><br><br>
+
+                <input type="text" name="code" placeholder="Code" id="edit_code" required><br><br>
+                <input type="text" name="merk" placeholder="Merk" id="edit_merk" required><br><br>
+                <input type="text" name="name" placeholder="Name" id="edit_name" required><br><br>
+                <input type="text" name="price" placeholder="Price" id="edit_price" required><br><br>
+
+                <input type="file" name="image"><br><br>
+
+                <button class="buttons" type="submit" name="editProduct">Update</button>
+
+            </form>
         </div>
     </div>
 
@@ -206,7 +295,45 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+
+            if (event.target == document.getElementById("editModal")){
+                document.getElementById("editModal").style.display = "none";
+            }
         }
+
+        //Edit data
+        function editModal(id, category, code, merk, name, price, image){
+            document.getElementById("edit_product_id").value = id;
+            document.getElementById("edit_category").value = category; 
+            document.getElementById("edit_code").value = code;
+            document.getElementById("edit_merk").value = merk;
+            document.getElementById("edit_name").value = name;
+            document.getElementById("edit_price").value = price;
+
+            document.getElementById("editModal").style.display = "block";
+        }
+        
+        //Close modal edit data
+        function closeEditModal(){
+            document.getElementById("editModal").style.display = "none";
+        }
+
+        //Success edit
+        <?php if (isset($_GET['updated'])) : ?>
+            document.addEventListener("DOMContentLoaded", function() {
+                var successModal = document.getElementById("successModal");
+
+                if (successModal) {
+                    successModal.style.display = "block";
+
+                    setTimeout(function() {
+                        successModal.style.display = "none";
+                        window.history.replaceState(null, null, "dashboard.php");
+                    }, 3000);
+                }
+            });
+
+        <?php endif; ?>
 
     </script>
 
