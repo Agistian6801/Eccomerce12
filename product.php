@@ -74,6 +74,31 @@
         header("Location: product.php?updated=1");
         exit();
     }
+
+    // Delete product data
+    if (isset($_GET['delete'])) {
+
+        $id = $_GET['delete'];
+
+        // Ambil nama file gambar dulu untuk dihapus dari folder
+        $sql = mysqli_query($conn, "SELECT Image FROM products WHERE ID_Product = '$id'");
+        $data = mysqli_fetch_array($sql);
+
+        if ($data) {
+            $imagePath = "images/" . $data['Image'];
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath); // hapus file gambar
+            }
+        }
+
+        // Hapus data dari database
+        mysqli_query($conn, "DELETE FROM products WHERE ID_Product = '$id'");
+
+        header("Location: product.php?deleted=1");
+        exit();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -164,7 +189,9 @@
                                 )">Edit</a>
                         </td>
                         <td>
-                            <a href="#" class="btn-delete">Delete</a>
+                            <a href="product.php?delete=<?= $data['ID_Product']; ?>" class="btn-delete" onclick="return confirm('Wanna delete this data?')">
+                                Delete
+                            </a>
                         </td>
                     </tr>
 
@@ -224,8 +251,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h3>Update Product</h3>
-            <hr>
-            <br>
+            <hr><br>
 
             <form method="POST" enctype="multipart/form-data">
 
@@ -236,9 +262,9 @@
                     <option value="">Select Category</option>
 
                     <?php
-                    $sql = mysqli_query($conn, " SELECT * FROM categories");
+                        $sql = mysqli_query($conn, " SELECT * FROM categories");
                                             
-                    while ($data = mysqli_fetch_array($sql)) { ?>
+                        while ($data = mysqli_fetch_array($sql)) { ?>
 
                     <option value="<?= $data['ID_Cat']; ?>"><?= $data['Name']; ?></option>
                     
@@ -328,11 +354,28 @@
 
                     setTimeout(function() {
                         successModal.style.display = "none";
-                        window.history.replaceState(null, null, "dashboard.php");
+                        window.history.replaceState(null, null, "product.php");
                     }, 3000);
                 }
             });
 
+        <?php endif; ?>
+
+        //Success script for pop up
+        <?php if (isset($_GET['deleted'])) : ?>
+            document.addEventListener("DOMContentLoaded", function() {
+                var successModal = document.getElementById("successModal");
+
+                if (successModal) {
+                    successModal.innerHTML = "<div class='modal-content'><h4 style='color:red;'>🗑️ Successfully Deleted!</h4></div>";
+                    successModal.style.display = "block";
+
+                    setTimeout(function() {
+                        successModal.style.display = "none";
+                        window.history.replaceState(null, null, "product.php");
+                    }, 3000);
+                }
+            });
         <?php endif; ?>
 
     </script>
